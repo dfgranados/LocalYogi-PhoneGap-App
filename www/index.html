@@ -5,8 +5,10 @@
     
     <title>Tabs Example</title>
 
-    <link href="http://code.ionicframework.com/1.0.0-beta.1/css/ionic.min.css" rel="stylesheet">
-    <script src="http://code.ionicframework.com/1.0.0-beta.1/js/ionic.bundle.min.js"></script>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.4.1/css/ionicons.min.css">
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   </head>
 
   <body ng-controller="HomeTabCtrl">
@@ -16,7 +18,7 @@
         
         <ion-side-menu-content ng-controller="NavCtrl">
           <ion-nav-bar class="bar-positive">
-            <ion-nav-back-button class="button-icon ion-arrow-left-c">
+            <ion-nav-back-button class="button-icon ion-chevron-left">
             </ion-nav-back-button>
           </ion-nav-bar>
         
@@ -81,16 +83,12 @@
           <ion-nav-view name="home-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="About" icon="ion-ios7-information" href="#/tab/about">
-          <ion-nav-view name="about-tab"></ion-nav-view>
+        <ion-tab title="My Classes" icon="ion-person" href="#/tab/myClasses">
+          <ion-nav-view name="myClasses-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="Contact" icon="ion-ios7-world" ui-sref="tabs.contact">
-          <ion-nav-view name="contact-tab"></ion-nav-view>
-        </ion-tab>
-
-        <ion-tab title="Filter" icon="ion-beer" ui-sref="tabs.filter">
-          <ion-nav-view name="filter-tab"></ion-nav-view>
+        <ion-tab title="Search" icon="ion-search" ui-sref="tabs.search">
+          <ion-nav-view name="search-tab"></ion-nav-view>
         </ion-tab>
 
       </ion-tabs>
@@ -101,7 +99,9 @@
  <script id="entry.html" type="text/ng-template">
       <ion-view title="Entry">
         <ion-content>
-          Entry page
+           <p>
+            <a class="button icon icon-right ion-chevron-right" href="#/tab/home">Login</a>
+          </p>
         </ion-content>
       </ion-view>
     </script>
@@ -148,8 +148,10 @@
       </ion-view>
     </script>
 
-    <script id="about.html" type="text/ng-template">
-      <ion-view title="About">
+    <!-- CLASSES PAGES -->
+
+    <script id="myClasses.html" type="text/ng-template">
+      <ion-view title="My Classes">
           <ion-nav-buttons side="left">
             <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()">
             </button>
@@ -170,14 +172,16 @@
       </ion-view>
     </script>
 
-    <script id="contact.html" type="text/ng-template">
-      <ion-view title="Contact">
+    <!-- SEARCH PAGE -->
+
+    <script id="search.html" type="text/ng-template">
+      <ion-view title="Search">
         <ion-nav-buttons side="left">
             <button class="button button-icon button-clear ion-navicon" ng-click="showMenu()">
             </button>
           </ion-nav-buttons>
         <ion-content>
-          contact info
+          search page
         </ion-content>
       </ion-view>
     </script>
@@ -202,13 +206,6 @@
       </ion-view>
     </script>
     
-    <script id="search.html" type="text/ng-template">
-      <ion-view title="Search">
-        <ion-content>
-          Search page
-        </ion-content>
-      </ion-view>
-    </script>
 
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>

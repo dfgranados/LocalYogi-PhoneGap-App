@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+/*!
+  COLOR SCHEME
+*/
+$positive: rgb(167, 219, 216);
+
+
+
+/*!
+  FONT
+*/
+
+$font-family-sans-serif:          "Lato", Helvetica, Arial, "Lucida Grande", sans-serif !default;
+
 @import
   // Ionicons
   "ionicons/ionicons.scss",

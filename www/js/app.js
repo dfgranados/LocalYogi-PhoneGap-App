@@ -45,11 +45,11 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
         }
       }
     })
-    .state('tabs.about', {
-      url: "/about",
+    .state('tabs.myClasses', {
+      url: "/myClasses",
       views: {
-        'about-tab': {
-          templateUrl: "about.html"
+        'myClasses-tab': {
+          templateUrl: "myClasses.html"
         }
       }
     })
@@ -61,11 +61,11 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
         }
       }
     })
-    .state('tabs.contact', {
-      url: "/contact",
+    .state('tabs.search', {
+      url: "/search",
       views: {
-        'contact-tab': {
-          templateUrl: "contact.html"
+        'search-tab': {
+          templateUrl: "search.html"
         }
       }
     })
