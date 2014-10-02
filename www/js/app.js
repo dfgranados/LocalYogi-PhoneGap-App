@@ -7,10 +7,6 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
       url: '/search',
       templateUrl: 'search.html'
     })
-    .state('settings', {
-      url: '/settings',
-      templateUrl: 'settings.html'
-    })
     .state('entry', {
       url: '/entry',
       templateUrl: 'entry.html'
@@ -37,19 +33,35 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
         }
       }
     })
-    .state('tabs.facts2', {
-      url: "/facts2",
+    .state('tabs.classes', {
+      url: "/classes",
       views: {
-        'home-tab': {
-          templateUrl: "facts2.html"
+        'classes-tab': {
+          templateUrl: "classes.html"
         }
       }
     })
-    .state('tabs.myClasses', {
-      url: "/myClasses",
+    .state('tabs.map', {
+      url: "/map",
       views: {
-        'myClasses-tab': {
-          templateUrl: "myClasses.html"
+        'map-tab': {
+          templateUrl: "map.html"
+        }
+      }
+    })
+    .state('tabs.profile', {
+      url: "/profile",
+      views: {
+        'profile-tab': {
+          templateUrl: "profile.html"
+        }
+      }
+    })
+    .state('tabs.settings', {
+      url: "/settings",
+      views: {
+        'profile-tab': {
+          templateUrl: "settings.html"
         }
       }
     })
