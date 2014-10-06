@@ -25,11 +25,11 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
         }
       }
     })
-    .state('tabs.facts', {
-      url: "/facts",
+    .state('tabs.addPost', {
+      url: "/addPost",
       views: {
         'home-tab': {
-          templateUrl: "facts.html"
+          templateUrl: "addPost.html"
         }
       }
     })
@@ -37,7 +37,16 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
       url: "/classes",
       views: {
         'classes-tab': {
-          templateUrl: "classes.html"
+          templateUrl: "classes.html",
+          controller: 'ClassesTabCtrl'
+        }
+      }
+    })
+    .state('tabs.addClass', {
+      url: "/addClass",
+      views: {
+        'classes-tab': {
+          templateUrl: "addClass.html"
         }
       }
     })
@@ -45,7 +54,16 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
       url: "/map",
       views: {
         'map-tab': {
-          templateUrl: "map.html"
+          templateUrl: "map.html",
+          controller: 'MapTabCtrl'
+        }
+      }
+    })
+    .state('tabs.host', {
+      url: "/host",
+      views: {
+        'map-tab': {
+          templateUrl: "host.html"
         }
       }
     })
@@ -65,14 +83,6 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
         }
       }
     })
-    .state('tabs.navstack', {
-      url: "/navstack",
-      views: {
-        'about-tab': {
-          templateUrl: "nav-stack.html"
-        }
-      }
-    })
     .state('tabs.search', {
       url: "/search",
       views: {
@@ -80,16 +90,7 @@ angular.module('seedApp', ['ionic', 'seedApp.controllers'])
           templateUrl: "search.html"
         }
       }
-    })
-    .state('tabs.filter', {
-      url: "/filter",
-      views: {
-        'filter-tab': {
-          templateUrl: "filter.html"
-        }
-      }
     });
-
 
    $urlRouterProvider.otherwise("/entry");
 
