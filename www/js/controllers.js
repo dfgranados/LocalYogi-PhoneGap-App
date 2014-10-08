@@ -1,4 +1,4 @@
-var app = angular.module('seedApp.controllers', ['classDataService']);
+var app = angular.module('seedApp.controllers', ['classDataService', 'dateTimeService']);
 
 app.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
   $scope.showMenu = function () {
@@ -12,13 +12,27 @@ app.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
 app.controller('HomeTabCtrl', function($scope) {
 });
 
-app.controller('ClassesTabCtrl', function($scope, classesFactory) {
+
+
+app.controller('ClassesTabCtrl', function($scope, classesFactory, dateTimeFactory) {
   $scope.yClass = classesFactory.all();
 
-    $scope.classSearchFilter = function (yClass) {
+  $scope.dayAsText = dateTimeFactory.dayAsText;
+
+  $scope.currentMonth = dateTimeFactory.currentMonth;
+
+  $scope.currentDay = dateTimeFactory.currentDay;
+  
+
+$scope.classSearchFilter = function (yClass) {
     var keyword = new RegExp($scope.classFilter, 'i');
-    return !$scope.classFilter || keyword.test(yClass.location) || keyword.test(yClass.yogaType) || keyword.test(yClass.teacher);
+    return !$scope.classFilter || keyword.test(yClass.location) || keyword.test(yClass.yogaType) || keyword.test(yClass.teacher) ;
 };
+
+  $scope.repeatQ = function(n)
+  {
+    return new Array(n);
+  };
 });
 
 app.controller('MapTabCtrl', function($scope) {
@@ -34,6 +48,7 @@ app.directive("menu-icon", function () {
     templateU: 'menu-icon.html'
   };
 });
+
 
 app.controller('searchController', function($scope) {
     $scope.personList = [
@@ -73,3 +88,5 @@ app.controller('searchController', function($scope) {
     return !$scope.nameFilter || keyword.test(person.Person.givenName) || keyword.test(person.Person.familyName);
 };
 });
+
+

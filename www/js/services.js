@@ -1,23 +1,21 @@
 angular.module('classDataService', [])
 
-/**
- * A simple example service that returns some data.
- */
+/*RETRIVE CLASS INFORMATION*/
 .factory('classesFactory', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
   var classes = [
-    { id: 0, yogaType: 'Hot Yoga', teacher: 'Paula Pavlova', length: '45 min', location:'Adam\'s Morgan' },
-    { id: 1, yogaType: 'Ashtanga Yoga', teacher: 'Diplo Weasly', length: '60 min' , location:'Dupont'  },
-    { id: 2, yogaType: 'Power Yoga', teacher: 'Suzzie Suzzington', length: '75 min' , location:'Tenley'  },
-     { id: 3, yogaType: 'Power Yoga', teacher: 'Timmy Timmington', length: '90 min' , location:'H Street'  },
-    { id: 4, yogaType: 'Kundalini Yoga', teacher: 'Andy Anditon', length: '75 min' , location:'Shaw'  },
-    { id: 5, yogaType: 'Hot Yoga', teacher: 'Paula Pavlova', length: '45 min', location:'Columbia Heights'  },
-    { id: 6, yogaType: 'Ashtanga Yoga', teacher: 'Diplo Weasly', length: '60 min' , location:'Rosslyn'  },
-    { id: 7, yogaType: 'Power Yoga', teacher: 'Suzzie Suzzington', length: '75 min' , location:'DaSpot'  },
-     { id: 8, yogaType: 'Power Yoga', teacher: 'Timmy Timmington', length: '90 min' , location:'DaPlace'  },
-    { id: 9, yogaType: 'Kundalini Yoga', teacher: 'Andy Anditon', length: '75 min', location:'DaLocation'   }
+    { id: 0, yogaType: 'Hot Yoga', teacher: 'Paula Pavlova', time:'6 pm' , location:'Adam\'s Morgan', year:"2014", month:"10" , day:8 },
+    { id: 1, yogaType: 'Ashtanga Yoga', teacher: 'Diplo Weasly', time: '8 pm' , location:'Dupont' , year:"2014", month:"10" , day:8  },
+    { id: 2, yogaType: 'Power Yoga', teacher: 'Suzzie Suzzington', time: '9 pm' , location:'Tenley' , year:"2014", month:"10" , day:8  },
+     { id: 3, yogaType: 'Power Yoga', teacher: 'Timmy Timmington', time: '9 am' , location:'H Street' , year:"2014", month:"12" , day:1  },
+    { id: 4, yogaType: 'Kundalini Yoga', teacher: 'Andy Anditon', time: '12 pm' , location:'Shaw' , year:"2014", month:"11" , day:1  },
+    { id: 5, yogaType: 'Hot Yoga', teacher: 'Paula Pavlova', time: '3 pm', location:'Columbia Heights' , year:"2014", month:"10" , day:9  },
+    { id: 6, yogaType: 'Ashtanga Yoga', teacher: 'Diplo Weasly', time: '8 am' , location:'Rosslyn' , year:"2014", month:"10" , day:10  },
+    { id: 7, yogaType: 'Power Yoga', teacher: 'Suzzie Suzzington', time: '10am' , location:'DaSpot' , year:"2014", month:"10" , day:10  },
+     { id: 8, yogaType: 'Power Yoga', teacher: 'Timmy Timmington', time: '4:30 pm' , location:'DaPlace' , year:"2014", month:"10" , day:10  },
+    { id: 9, yogaType: 'Kundalini Yoga', teacher: 'Andy Anditon', time: '5pm', location:'DaLocation', year:"2014", month:"10" , day:10   }
   ];
 
   return {
@@ -31,11 +29,8 @@ angular.module('classDataService', [])
   };
 });
 
+/*RETRIEVE PERSON INFORMATION*/
 angular.module('personDataService', [])
-
-/**
- * A simple example service that returns some data.
- */
 .factory('personFactory', function() {
   // Might use a resource here that returns a JSON array
 
@@ -61,5 +56,34 @@ angular.module('personDataService', [])
       // Simple index lookup
       return classes[classId];
     }
+  };
+});
+
+/*Handle date and time information*/
+angular.module('dateTimeService', [])
+.factory('dateTimeFactory', function() {
+  
+  return {
+       all: function() {
+            return "this will do date time info";
+          },
+        dayAsText: function (index)
+          {
+              var now = moment();
+            dateText = now.add(index, 'days').format("MMMM DD");
+            return dateText;
+          },
+       currentMonth: function (index)
+          {
+            var now = moment();
+            month = now.add(index, 'days').format("MM");
+            return month;
+          },
+         currentDay: function (index)
+          {
+            var now = moment();
+            month = now.add(index, 'days').format("D");
+            return month;
+          }
   };
 });

@@ -1,1 +1,6 @@
 /* Empty. Add your own CSS if you like */
+#classesToggle
+{
+	width:10em; 
+	margin: 5px auto;
+}

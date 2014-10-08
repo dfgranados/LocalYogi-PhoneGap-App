@@ -1,4 +1,4 @@
-angular.module('seedApp', ['ionic', 'seedApp.controllers'])
+angular.module('seedApp', ['ionic', 'seedApp.controllers', 'angularMoment'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
