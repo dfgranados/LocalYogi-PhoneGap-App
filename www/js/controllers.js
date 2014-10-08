@@ -22,7 +22,13 @@ app.controller('ClassesTabCtrl', function($scope, classesFactory, dateTimeFactor
   $scope.currentMonth = dateTimeFactory.currentMonth;
 
   $scope.currentDay = dateTimeFactory.currentDay;
-  
+
+  $scope.mineVar = '';
+
+  $scope.checkClick = function(n)
+  {
+    console.log('clicked');
+  };
 
 $scope.classSearchFilter = function (yClass) {
     var keyword = new RegExp($scope.classFilter, 'i');

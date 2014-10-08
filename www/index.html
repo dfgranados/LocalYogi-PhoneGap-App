@@ -139,31 +139,32 @@
     <!-- CLASS PAGES -->
 
     <script id="classes.html" type="text/ng-template">
-      <ion-view title="">
+      <ion-view title="" ng-controller="ClassesTabCtrl">
+      <ion-header-bar>
           <ion-nav-buttons side="left">
             <button class="button button-icon button-clear ion-ios7-search" ng-click="showMenu()">
             </button>
-            <div class="title">
-              <div class="button-bar" style="width:10em; margin: 5px auto">
-                <a class="button activated" ng-click="">all </a>
-                <a class="button">mine</a>
+
+              <div class="button-bar" style="width:10em; margin: 5px auto;" >
+                <a class="button" ng-click="mineVar= '' ">all </a>
+                <a class="button" ng-click="mineVar='y' ">mine</a>
               </div>
-            </div>
-           </ion-nav-buttons>
+
           <ion-nav-buttons side="right">
           <a href="#/tab/addClass">
             <button class="button button-icon button-clear ion-ios7-plus-empty">
             </button>
             </a>
           </ion-nav-buttons>
+       </ion-header-bar>
         <ion-content>
-         <div ng-controller="ClassesTabCtrl">
+         <div>
               <input type="text" ng-model="classFilter" placeholder="&nbsp; &nbsp;  search by teacher, type, or location"/>
                 <div class="list" ng-repeat="a in repeatQ(60) track by $index ">
                       <div class="item item-divider">
                           {{dayAsText($index)}}
                         </div>
-                        <a class="item item-avatar" href="#" ng-repeat="yclass in yClass |  filter: classSearchFilter | filter: {month: currentMonth($index)} | filter: {day: currentDay($index)} ">
+                        <a class="item item-avatar" href="#" ng-repeat="yclass in yClass |  filter: classSearchFilter | filter: {month: currentMonth($index)} | filter: {day: currentDay($index)} | filter: {mine: mineVar}">
                           <img src="img/user/{{yclass.id}}.png">
                            <h2>{{yclass.time}}&nbsp;{{yclass.yogaType}}</h2>
                            <h2>with &nbsp;{{yclass.teacher}}</h2>
