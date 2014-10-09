@@ -1,4 +1,4 @@
-var app = angular.module('seedApp.controllers', ['classDataService', 'dateTimeService']);
+var app = angular.module('seedApp.controllers', ['classDataService', 'dateTimeService', 'personDataService']);
 
 app.controller('NavCtrl', function($scope, $ionicSideMenuDelegate) {
   $scope.showMenu = function () {
@@ -14,31 +14,34 @@ app.controller('HomeTabCtrl', function($scope) {
 
 
 
-app.controller('ClassesTabCtrl', function($scope, classesFactory, dateTimeFactory) {
+app.controller('ClassesTabCtrl', function($scope, classesFactory, dateTimeFactory, personFactory) {
   $scope.yClass = classesFactory.all();
 
-  $scope.dayAsText = dateTimeFactory.dayAsText;
-
-  $scope.currentMonth = dateTimeFactory.currentMonth;
-
-  $scope.currentDay = dateTimeFactory.currentDay;
-
-  $scope.mineVar = '';
-
-  $scope.checkClick = function(n)
-  {
-    console.log('clicked');
-  };
-
-$scope.classSearchFilter = function (yClass) {
+    $scope.classSearchFilter = function (yClass) {
+      teacherName = $scope.getClassTeacher(yClass.id);
     var keyword = new RegExp($scope.classFilter, 'i');
-    return !$scope.classFilter || keyword.test(yClass.location) || keyword.test(yClass.yogaType) || keyword.test(yClass.teacher) ;
-};
+        return !$scope.classFilter || keyword.test(teacherName) || keyword.test(yClass.location);
+    };
 
-  $scope.repeatQ = function(n)
-  {
-    return new Array(n);
-  };
+    $scope.getClassTeacher = function(teacherId){
+      teacher = personFactory.get(teacherId);
+      return teacher.Person.firstName + " " + teacher.Person.lastName;
+    };
+
+      $scope.dayAsText = dateTimeFactory.dayAsText;
+
+      $scope.currentMonth = dateTimeFactory.currentMonth;
+
+      $scope.currentDay = dateTimeFactory.currentDay;
+
+      $scope.repeatQ = function(n)
+      {
+        return new Array(n);
+      };
+});
+
+app.controller('MapTabCtrl', function($scope) {
+
 });
 
 app.controller('MapTabCtrl', function($scope) {
@@ -56,43 +59,12 @@ app.directive("menu-icon", function () {
 });
 
 
-app.controller('searchController', function($scope) {
-    $scope.personList = [
-      {
-          Person: {
-              firstName: 'Paula',
-              familyName: 'Pavlova'
-          },
-          location: "DC",
-          Constructors: [
-              {name: "teacher"}
-          ]
-      },
-       {
-          Person: {
-              firstName: 'Dan',
-              familyName: 'Granados'
-          },
-          location: "Austin",
-          Constructors: [
-              {name: "student"}
-          ]
-      },
-      {
-          Person: {
-          firstName: 'Diplo',
-              familyName: 'Pavlov'
-          },
-          location: "LA",
-          Constructors: [
-              {name: "puppy"}
-          ]
-      }
-    ];
-    $scope.searchFilter = function (person) {
-    var keyword = new RegExp($scope.nameFilter, 'i');
-    return !$scope.nameFilter || keyword.test(person.Person.givenName) || keyword.test(person.Person.familyName);
-};
+app.controller('searchController', function($scope, personFactory) {
+        $scope.personList = personFactory.all();
+        $scope.searchFilter = function (person) {
+        var keyword = new RegExp($scope.nameFilter, 'i');
+        return !$scope.nameFilter || keyword.test(person.Person.firstName) || keyword.test(person.Person.lastName);
+    };
 });
 
 

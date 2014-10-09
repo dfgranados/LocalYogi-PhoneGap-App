@@ -39,9 +39,8 @@
               <input type="text" ng-model="nameFilter" placeholder="Search..."/>
                 <div class="list">
                   <a class="item item-avatar" href="#" ng-repeat="person in personList | filter: searchFilter">
-                    <img src="venkman.jpg">
-                    <h2>{{person.Person.firstName}}&nbsp;{{person.Person.familyName}}</h2>
-                    <p> {{person.Constructors[0].name}}</p>
+                    <img src="img/user/{{person.id}}.png"/>
+                    <h2>{{person.Person.firstName}}&nbsp;{{person.Person.lastName}}</h2>
                     <p> {{person.location}}</p>
                   </a>
               </div>
@@ -139,7 +138,7 @@
     <!-- CLASS PAGES -->
 
     <script id="classes.html" type="text/ng-template">
-      <ion-view title="" ng-controller="ClassesTabCtrl">
+      <ion-view title="">
       <ion-header-bar>
           <ion-nav-buttons side="left">
             <button class="button button-icon button-clear ion-ios7-search" ng-click="showMenu()">
@@ -157,7 +156,7 @@
             </a>
           </ion-nav-buttons>
        </ion-header-bar>
-        <ion-content>
+        <ion-content ng-controller="ClassesTabCtrl">
          <div>
               <input type="text" ng-model="classFilter" placeholder="&nbsp; &nbsp;  search by teacher, type, or location"/>
                 <div class="list" ng-repeat="a in repeatQ(60) track by $index ">
@@ -165,13 +164,13 @@
                           {{dayAsText($index)}}
                         </div>
                         <a class="item item-avatar" href="#" ng-repeat="yclass in yClass |  filter: classSearchFilter | filter: {month: currentMonth($index)} | filter: {day: currentDay($index)} | filter: {mine: mineVar}">
-                          <img src="img/user/{{yclass.id}}.png">
+                          <img src="img/user/{{yclass.teacherId}}.png"/>
                            <h2>{{yclass.time}}&nbsp;{{yclass.yogaType}}</h2>
-                           <h2>with &nbsp;{{yclass.teacher}}</h2>
+                           <h2>with &nbsp;{{getClassTeacher(yclass.teacherId)}}</h2>
                             <div style="right: 0px" class="button-icon button-clear ion-location"></div>
                             &nbsp;{{yclass.location}}
                         </a>
-              </div>
+                </div>
           </div> 
         </ion-content>
       </ion-view>
@@ -180,7 +179,7 @@
     <script id="addClass.html" type="text/ng-template">
       <ion-view title="add class">
         <ion-content>
-          Add class content
+          Add yogaclass content
         </ion-content>
       </ion-view>
     </script>
