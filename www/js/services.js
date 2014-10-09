@@ -6,9 +6,9 @@ angular.module('classDataService', [])
 
   // Some fake testing data
   var classes = [
-    { id: 0, yogaType: 'Hot Yoga', teacherId: '0', time:'6 pm' , location:'Adam\'s Morgan', year:"2014", month:"10" , day:8, mine:'y' },
-    { id: 1, yogaType: 'Ashtanga Yoga', teacherId: '1', time: '8 pm' , location:'Dupont' , year:"2014", month:"10" , day:8, mine:'n'  },
-    { id: 2, yogaType: 'Power Yoga', teacherId: '2', time: '9 pm' , location:'Tenley' , year:"2014", month:"10" , day:8, mine:'n'  },
+    { id: 0, yogaType: 'Hot Yoga', teacherId: '0', time:'6 pm' , location:'Adam\'s Morgan', year:"2014", month:"10" , day:12, mine:'y' },
+    { id: 1, yogaType: 'Ashtanga Yoga', teacherId: '1', time: '8 pm' , location:'Dupont' , year:"2014", month:"10" , day:12, mine:'n'  },
+    { id: 2, yogaType: 'Power Yoga', teacherId: '2', time: '9 pm' , location:'Tenley' , year:"2014", month:"10" , day:12, mine:'n'  },
      { id: 2, yogaType: 'Power Yoga', teacherId: '3', time: '9 am' , location:'H Street' , year:"2014", month:"12" , day:1, mine:'y'  },
     { id: 4, yogaType: 'Kundalini Yoga', teacherId: '4', time: '12 pm' , location:'Shaw' , year:"2014", month:"11" , day:1, mine:'n'  },
     { id: 5, yogaType: 'Hot Yoga', teacherId: '9', time: '3 pm', location:'Columbia Heights' , year:"2014", month:"10" , day:9, mine:'y'  },
